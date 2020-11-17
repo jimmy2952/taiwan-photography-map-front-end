@@ -1,0 +1,13 @@
+.MainNavigation nav {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .MainNavigation button {
+    display: none;
+  }
+
+  .main-navigation__header-nav {
+    display: block;
+  }
+}
