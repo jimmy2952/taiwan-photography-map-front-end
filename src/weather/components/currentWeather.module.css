@@ -1,0 +1,47 @@
+.CurrentWeather {
+  padding: 2rem 3rem;
+}
+
+.CurrentWeather p {
+  margin-bottom: 0;
+  font-size: 1.6rem;
+}
+
+.CurrentWeather h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.CurrentTime {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.TemperatureContainer {
+  padding-left: 1rem;
+  width: 70%;
+}
+
+.Temperature {
+  font-size: 10rem;
+}
+
+.SecondColumn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.WeatherImage {
+  padding: 2rem 2rem;
+  width: 50%;
+}
+
+.WeatherImage img {
+  width: 5vw;
+  height: auto;
+}
+
+.WeatherImage div {
+  margin: 1rem;
+  font-size: 1.6rem;
+}

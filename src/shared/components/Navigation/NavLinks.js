@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
 import classes from "./NavLinks.module.css";
@@ -17,7 +17,7 @@ const NavLinks = (props) => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" exact>
+        <NavLink to="/weather" exact>
           天氣
         </NavLink>
       </li>

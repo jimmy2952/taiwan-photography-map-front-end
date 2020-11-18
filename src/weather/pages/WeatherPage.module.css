@@ -1,0 +1,32 @@
+.WeatherPage h1 {
+  text-align: center;
+}
+
+.WeatherPage ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.WeatherPage li {
+  list-style: none;
+  padding: 1rem 3rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.WeatherPage li:hover {
+  color: #eeeeee;
+  background-color: #1a1a1a;
+}
+
+.WeatherPage section {
+  width: 50%;
+  border: 1px solid #1a1a1a;
+  margin: auto;
+  border-radius: 10px;
+  height: 75vh;
+  -webkit-box-shadow: 4px 4px 14px 0px rgba(125,125,125,1);
+  -moz-box-shadow: 4px 4px 14px 0px rgba(125,125,125,1);
+  box-shadow: 4px 4px 14px 0px rgba(125,125,125,1);
+}
