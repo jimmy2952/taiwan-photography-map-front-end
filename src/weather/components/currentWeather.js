@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import classes from "./currentWeather.module.css";
+import classes from "./CurrentWeather.module.css";
 import weatherImage from "../../assets/weatherSymbolImage/[developer.foreca.com][191]d411.png";
 
 const CurrentWeather = (props) => {
