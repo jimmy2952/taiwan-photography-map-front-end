@@ -1,0 +1,13 @@
+.Carousel {
+
+}
+.Carousel img {
+    height: calc(100vh - 4rem);
+}
+
+@media (max-width: 499px) {
+    .Carousel img {
+        width: 100%;
+        object-fit: contain;
+    }
+} 

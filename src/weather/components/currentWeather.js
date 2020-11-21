@@ -24,7 +24,7 @@ const CurrentWeather = (props) => {
     precipProb: "-",
     precipRate: "-",
     visibility: "-",
-    UVIndex: "-",
+    uvIndex: "-",
   });
   
   useEffect(() => {
