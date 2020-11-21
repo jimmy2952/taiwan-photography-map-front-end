@@ -1,0 +1,41 @@
+.HourWeather {
+  width: 100%;
+}
+
+.TitleContainer{
+  display: flex;
+  justify-content: space-around;
+}
+
+.TitleContainer div {
+  width: 12.5%;
+  display: flex;
+  justify-content: center;
+}
+
+.TitleContainer span {
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.DataContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.DataContainer div {
+  width: 12.5%;
+  display: flex;
+  justify-content: center;
+}
+
+.DataContainer span {
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.DataContainer span img{
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+}
