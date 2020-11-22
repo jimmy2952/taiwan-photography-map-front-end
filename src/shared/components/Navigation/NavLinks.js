@@ -22,17 +22,17 @@ const NavLinks = (props) => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/places/new" exact>
+        <NavLink to="/photo/new" exact>
           上傳照片
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" exact>
+        <NavLink to="/login" exact>
           登入
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" exact>
+        <NavLink to="/signup" exact>
           註冊
         </NavLink>
       </li>

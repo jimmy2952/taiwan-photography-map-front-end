@@ -1,0 +1,26 @@
+.Upload {
+  width: 40%;
+  margin: auto;
+}
+.Upload form {
+  margin-top: 8rem;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #1a1a1a;
+  border-radius: 10px;
+}
+.Upload form div {
+  margin: 1rem;
+}
+.Upload form label {
+  margin: 0 auto;
+}
+.Upload form input {
+  margin: 0 auto;
+}
+.Container1 {
+  width: 60%;
+}
+.Container2 {
+  width: 40%;
+}

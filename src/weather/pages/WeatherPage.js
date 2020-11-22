@@ -22,7 +22,7 @@ const WeatherPage = (props) => {
   // })
 
   const [cityDistrictValue, setCityDistrictValue] = useState({
-    city: "-",
+    city: "縣市",
     district: "-",
   });
 

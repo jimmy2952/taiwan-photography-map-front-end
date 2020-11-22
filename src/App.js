@@ -4,7 +4,10 @@ import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import WeatherPage from "./weather/pages/WeatherPage";
 import Carousel from "./carousel/Carousel";
-import classes from "./App.css";
+import Upload from "./upload/Upload"
+import LogIn from "./auth/LogIn"
+import SignUp from "./auth/SignUp"
+import "./App.css";
 
 const App = () => {
   return (
@@ -13,8 +16,9 @@ const App = () => {
       <main className="headerHeight">
         <Switch>
           <Route path="/weather" component={WeatherPage} />
-          {/* <Route path="/portfolio" component={Portfolio} />
-        <Route path="/map" component={Map} /> */}
+          <Route path="/login" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/photo/new" component={Upload} /> 
           <Route exact path="/" component={Carousel} />
           <Redirect to="/" />
         </Switch>

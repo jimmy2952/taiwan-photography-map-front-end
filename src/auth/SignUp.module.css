@@ -1,0 +1,16 @@
+.SignUp  {
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border: 1px solid #1a1a1a;
+  padding-bottom: 2rem;
+  border-radius: 10px;
+  padding: 2rem 2rem 2rem 2rem;
+}
+
+
+.SignUp div {
+  margin-top: 1rem;
+}
+
+
