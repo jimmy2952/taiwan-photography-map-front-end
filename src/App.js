@@ -7,6 +7,8 @@ import Carousel from "./carousel/Carousel";
 import Upload from "./upload/Upload"
 import LogIn from "./auth/LogIn"
 import SignUp from "./auth/SignUp"
+import Map from "./map/page/Map"
+import CityDetail from "./cityDetail/page/cityDetail"
 import "./App.css";
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />
           <Route path="/photo/new" component={Upload} /> 
+          <Route path="/map/:city" component={CityDetail} />
+          <Route path="/map" component={Map} />
           <Route exact path="/" component={Carousel} />
           <Redirect to="/" />
         </Switch>

@@ -1,0 +1,26 @@
+.north{
+  fill: #bbe1fa;
+}
+.middle{
+  fill: #C5E1B7;
+}
+.south{
+  fill: #F9CFAB;
+}
+.east{
+  fill: #D7D1E8;
+}
+
+.cityArea:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+#mapid {
+  height: 180px;
+}
+
+.mymap {
+  height: '100vh';
+  width: 100%;
+} 

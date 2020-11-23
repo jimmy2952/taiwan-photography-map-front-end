@@ -12,7 +12,7 @@ const NavLinks = (props) => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/" exact>
+        <NavLink to="/map" exact>
           地圖
         </NavLink>
       </li>
