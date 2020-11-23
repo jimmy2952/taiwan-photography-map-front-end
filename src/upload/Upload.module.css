@@ -1,6 +1,7 @@
 .Upload {
   width: 40%;
   margin: auto;
+  padding: 0 3rem;
 }
 .Upload form {
   margin-top: 8rem;
@@ -22,5 +23,6 @@
   width: 60%;
 }
 .Container2 {
-  width: 40%;
+  width: 50%;
+  
 }

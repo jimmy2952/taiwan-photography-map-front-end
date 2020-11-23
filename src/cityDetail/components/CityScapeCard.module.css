@@ -1,0 +1,12 @@
+.CityScapeCard div {
+  width: 20vw;
+  margin-bottom: 1rem;
+}
+
+.CityScapeCard img {
+  width: 100%;
+}
+
+.ImageInformation {
+  text-align: center;
+}

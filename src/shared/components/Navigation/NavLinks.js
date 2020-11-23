@@ -36,11 +36,11 @@ const NavLinks = (props) => {
           註冊
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/" exact>
           我的頁面
         </NavLink>
-      </li>
+      </li> */}
     </ul>
   );
 };

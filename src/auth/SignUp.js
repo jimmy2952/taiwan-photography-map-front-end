@@ -18,7 +18,7 @@ const SignUp = (props) => {
   //   confirmPassword:""
   // })
 
-  const [formState, inputHandler, setFormDate] = useForm(
+  const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
         value: "",

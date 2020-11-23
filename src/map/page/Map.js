@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
-import taiwanMap from "../../assets/COUNTY_MOI_1090820.svg";
-import { ReactComponent as TaiwanMap } from "../../assets/COUNTY_MOI_1090820.svg"
-import "leaflet/dist/leaflet.css";
 
 import "./Map.css";
 
