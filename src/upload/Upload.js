@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import ImageUpload from "../shared/components/UIElements/ImageUpload";
 import Input from "../shared/components/UIElements/Input";
@@ -7,9 +8,14 @@ import districtLonLat from "../utils/taiwan_district_lon_lat.json";
 import cityName from "../utils/taiwanCityName.json";
 import { VALIDATOR_NONE, VALIDATOR_REQUIRE } from "../utils/validators";
 import { useForm } from "../shared/hook/form-hook";
+import { useHttpClient } from "../shared/hook/http-hook"
+import { AuthContext } from "../shared/context/auth-context"
 import classes from "./Upload.module.css";
 
 const Upload = (props) => {
+  const auth = useContext(AuthContext)
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
   const [formState, inputHandler, setFormData] = useForm(
     {
       imageTitle: {
@@ -40,14 +46,40 @@ const Upload = (props) => {
     false
   );
 
-  const uploadImageHandler = (event) => {
+  const history = useHistory();
+
+  const uploadImageHandler = async(event) => {
     event.preventDefault();
-    console.log(formState);
+    try {
+      const formData = new FormData();
+      formData.append("imageTitle", formState.inputs.imageTitle.value);
+      formData.append("imageDescription", formState.inputs.imageDescription.value);
+      formData.append("imageCategory", formState.inputs.imageCategory.value);
+      formData.append("imageCityLocation", formState.inputs.imageCityLocation.value);
+      formData.append("imageDistrictLocation", formState.inputs.imageDistrictLocation.value);
+      formData.append("imageScapeName", formState.inputs.imageScapeName.value);
+      formData.append("image", formState.inputs.image.value);
+      formData.append("creator", auth.userId)
+      await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/api/images`,
+        "POST",formData,
+
+      );
+     history.push("/")
+    } catch (err) {}
+    console.log(formState.inputs)
   };
 
   return (
     <section className={classes.Upload}>
       <form onSubmit={uploadImageHandler}>
+        <div className={classes.Container1}>
+          <ImageUpload
+            id="image"
+            onInput={inputHandler}
+            errorText="請上傳照片"
+          />
+        </div>
         <div className={classes.Container2} style={{ margin: "0 auto" }}>
           <Input
             element="input"
