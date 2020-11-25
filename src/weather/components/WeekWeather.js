@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import classes from "./WeekWeather.module.css"
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import classes from "./WeekWeather.module.css";
 import { symbolHandler } from "../../utils/importWeatherSymbol";
 import { useHttpClient } from "../../shared/hook/http-hook";
 
 const WeakWeather = (props) => {
-  console.log("render week weather")
+  console.log("render week weather");
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const [weekData, setWeekData] = useState()
+  const [weekData, setWeekData] = useState();
 
   useEffect(() => {
     if (props.districtLonLat.lat !== "-") {
@@ -33,6 +35,7 @@ const WeakWeather = (props) => {
 
   return (
     <div className={classes.HourWeather}>
+      <ErrorModal error={error} onClear={clearError} />
       <div className={classes.TitleContainer}>
         <div>
           <span>日期</span>
@@ -59,16 +62,21 @@ const WeakWeather = (props) => {
           <span>日落</span>
         </div>
       </div>
-      {weekData && weekData.forecast.map((weekDataItem) => {
-        const data = new Date(weekDataItem.date);
-        const currentDate = data.getMonth() + 1 + "/" + data.getDate();
+      {isLoading && weekData ? (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
+      ) : (
+        weekData.forecast.map((weekDataItem) => {
+          const data = new Date(weekDataItem.date);
+          const currentDate = data.getMonth() + 1 + "/" + data.getDate();
 
-        return (
-          <div className={classes.DataContainer} key={Math.random()}>
-            <div>
-              <span>{`${currentDate}`}</span>
-            </div>
-            <div>
+          return (
+            <div className={classes.DataContainer} key={Math.random()}>
+              <div>
+                <span>{`${currentDate}`}</span>
+              </div>
+              <div>
                 <span>
                   <img
                     src={symbolHandler(weekDataItem.symbol)}
@@ -76,27 +84,28 @@ const WeakWeather = (props) => {
                   />
                 </span>
               </div>
-            <div>
-              <span>{`${weekDataItem.maxTemp} °C`}</span>
+              <div>
+                <span>{`${weekDataItem.maxTemp} °C`}</span>
+              </div>
+              <div>
+                <span>{`${weekDataItem.minTemp} °C`}</span>
+              </div>
+              <div>
+                <span>{`${weekDataItem.precipProb} %`}</span>
+              </div>
+              <div>
+                <span>{`${weekDataItem.precipAccum}mm/hr`}</span>
+              </div>
+              <div>
+                <span>{`${weekDataItem.sunrise}`}</span>
+              </div>
+              <div>
+                <span>{`${weekDataItem.sunset}`}</span>
+              </div>
             </div>
-            <div>
-              <span>{`${weekDataItem.minTemp} °C`}</span>
-            </div>
-            <div>
-              <span>{`${weekDataItem.precipProb} %`}</span>
-            </div>
-            <div>
-              <span>{`${weekDataItem.precipAccum}mm/hr`}</span>
-            </div>
-            <div>
-              <span>{`${weekDataItem.sunrise}`}</span>
-            </div>
-            <div>
-              <span>{`${weekDataItem.sunset}`}</span>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })
+      )}
     </div>
   );
 };

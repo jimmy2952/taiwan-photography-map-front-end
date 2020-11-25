@@ -1,74 +1,97 @@
 [
   {
-    "cityName": "縣市"
+    "cityName": "縣市",
+    "cityNameEn": ""
   },
   {
-    "cityName": "臺北市"
+    "cityName": "台北市",
+    "cityNameEn": "taipei-city"
   },
   {
-    "cityName": "基隆市"
+    "cityName": "基隆市",
+    "cityNameEn": "keelung-city"
   },
   {
-    "cityName": "新北市"
+    "cityName": "新北市",
+    "cityNameEn": "newtaipei-city"
   },
   {
-    "cityName": "連江縣"
+    "cityName": "連江縣",
+    "cityNameEn": "lienchiang-county"
   },
   {
-    "cityName": "宜蘭縣"
+    "cityName": "宜蘭縣",
+    "cityNameEn": "yilan-county"
   },
   {
-    "cityName": "新竹市"
+    "cityName": "新竹市",
+    "cityNameEn": "hsinchu-city"
   },
   {
-    "cityName": "新竹縣"
+    "cityName": "新竹縣",
+    "cityNameEn": "hsinchu-county"
   },
   {
-    "cityName": "桃園市"
+    "cityName": "桃園市",
+    "cityNameEn": "taoyuan-city"
   },
   {
-    "cityName": "苗栗縣"
+    "cityName": "苗栗縣",
+    "cityNameEn": "miaoli-county"
   },
   {
-    "cityName": "臺中市"
+    "cityName": "台中市",
+    "cityNameEn": "taichung-city"
   },
   {
-    "cityName": "彰化縣"
+    "cityName": "彰化縣",
+    "cityNameEn": "changhua-county"
   },
   {
-    "cityName": "南投縣"
+    "cityName": "南投縣",
+    "cityNameEn": "nantou-county"
   },
   {
-    "cityName": "嘉義市"
+    "cityName": "嘉義市",
+    "cityNameEn": "chiayi-city"
   },
   {
-    "cityName": "嘉義縣"
+    "cityName": "嘉義縣",
+    "cityNameEn": "chiayi-county"
   },
   {
-    "cityName": "雲林縣"
+    "cityName": "雲林縣",
+    "cityNameEn": "yunlin-county"
   },
   {
-    "cityName": "臺南市"
+    "cityName": "台南市",
+    "cityNameEn": "tainan-city"
   },
   {
-    "cityName": "高雄市"
+    "cityName": "高雄市",
+    "cityNameEn": "kaohsiung-city"
   },
   {
     "cityName": "南海諸"
   },
   {
-    "cityName": "澎湖縣"
+    "cityName": "澎湖縣",
+    "cityNameEn": "penghu-county"
   },
   {
-    "cityName": "金門縣"
+    "cityName": "金門縣",
+    "cityNameEn": "kinmen-county"
   },
   {
-    "cityName": "屏東縣"
+    "cityName": "屏東縣",
+    "cityNameEn": "pingtung-county"
   },
   {
-    "cityName": "臺東縣"
+    "cityName": "台東縣",
+    "cityNameEn": "taitung-county"
   },
   {
-    "cityName": "花蓮縣"
+    "cityName": "花蓮縣",
+    "cityNameEn": "hualien-county"
   }
 ]

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+
 import classes from "./CurrentWeather.module.css";
-import { symbolHandler } from "../../utils/importWeatherSymbol"
+import { symbolHandler } from "../../utils/importWeatherSymbol";
 import { useHttpClient } from "../../shared/hook/http-hook";
 
-
-
 const CurrentWeather = (props) => {
-  console.log(props.districtLonLat.lon, props.districtLonLat.lat)
+  console.log(props.districtLonLat.lon, props.districtLonLat.lat);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const date = new Date();
   const currentTime = new Intl.DateTimeFormat("zh-TW", {
@@ -26,7 +27,7 @@ const CurrentWeather = (props) => {
     visibility: "-",
     uvIndex: "-",
   });
-  
+
   useEffect(() => {
     if (props.districtLonLat.lon !== "-") {
       const fetchCurrentWeather = async () => {
@@ -36,27 +37,32 @@ const CurrentWeather = (props) => {
             "GET",
             null,
             {
-              Authorization:
-                `Bearer ${process.env.REACT_APP_TOKEN}`,
+              Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
             }
           );
-          console.log(responseData)
+          console.log(responseData);
           setWeatherData(responseData.current);
         } catch (err) {}
       };
-  
+
       fetchCurrentWeather();
     }
-    return
-    
+    return;
   }, [sendRequest, props.districtLonLat]);
 
-  console.log(weatherData)
+  console.log(weatherData);
 
-  return (
+  return isLoading ? (
+    <div className="center">
+      <LoadingSpinner />
+    </div>
+  ) : (
     <div className={classes.CurrentWeather}>
+      <ErrorModal error={error} onClear={clearError} />
       <div className={classes.CurrentTime}>
-        <h2>{`${props.city === "縣市" ? "-" : props.city} ${props.district ? props.district : "-"}`}</h2>
+        <h2>{`${props.city === "縣市" ? "-" : props.city} ${
+          props.district ? props.district : "-"
+        }`}</h2>
         現在時間：{currentDate} {currentTime}
       </div>
       <div className={classes.SecondColumn}>
@@ -71,7 +77,13 @@ const CurrentWeather = (props) => {
         </div>
         <div className={classes.WeatherImage}>
           <div style={{ display: "flex", alignItems: "flex-start" }}>
-            天氣：{weatherData.symbol && <img src={symbolHandler(weatherData.symbol)} alt="weatherSymbol" />}
+            天氣：
+            {weatherData.symbol && (
+              <img
+                src={symbolHandler(weatherData.symbol)}
+                alt="weatherSymbol"
+              />
+            )}
           </div>
           <div>{`濕度：${weatherData.relHumidity}%`}</div>
           <div>{`風速：${weatherData.windSpeed} m/s`}</div>
