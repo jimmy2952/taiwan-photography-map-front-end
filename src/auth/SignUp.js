@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useContext } from "react";
 
 import Input from "../shared/components/UIElements/Input";
 import Button from "../shared/components/UIElements/Button";
@@ -9,14 +9,14 @@ import {
   VALIDATOR_REQUIRE,
 } from "../utils/validators";
 import { useForm } from "../shared/hook/form-hook";
+import { useHttpClient } from "../shared/hook/http-hook";
+import { AuthContext } from "../shared/context/auth-context";
 import classes from "./SignUp.module.css";
 
 const SignUp = (props) => {
-  // const [formValue, setFormValue] = useState({
-  //   email: "",
-  //   password: "",
-  //   confirmPassword:""
-  // })
+  const auth = useContext(AuthContext);
+  const [isLogInMode, setIsLogInMode] = useState(true);
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -26,7 +26,7 @@ const SignUp = (props) => {
       },
       name: {
         value: "",
-        isValid: false
+        isValid: false,
       },
       password: {
         value: "",
@@ -36,53 +36,34 @@ const SignUp = (props) => {
     false
   );
 
-  // const initialState = {
-  //   email: "",
-  //   password: "",
-  //   confirmPassword: "",
-  // };
-
-  // const reducer = (state, action) => {
-  //   switch (action.type) {
-  //     case "inputChange":
-  //       return {
-  //         ...state,
-  //         [action.name]: action.value,
-  //       };
-  //     case "reset":
-  //       return initialState
-  //   }
-  // };
-
-  // const [inputState, dispatch] = useReducer(reducer, initialState);
-
-  // const inputChangeHandler = (event) => {
-  //   dispatch({
-  //     type: "inputChange",
-  //     name: event.target.name,
-  //     value: event.target.value,
-  //   });
-  //   console.log(inputState)
-  // };
-
-  // const resetHandler = (event) => {
-  //   event.preventDefault()
-  //   dispatch({
-  //     type: "reset",
-
-  //   })
-  // }
-
-const signupSubmitHandler = event => {
-  event.preventDefault()
-  console.log(formState)
-}
+  const signupSubmitHandler = async (event) => {
+    event.preventDefault();
+    console.log(process.env.REACT_APP_BACKEND_URL)
+    try {
+      const responseData = await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/signup`,
+        "POST",
+        JSON.stringify({
+          name: formState.inputs.name.value,
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value,
+        }),
+        { "Content-Type": "application/json" }
+      );
+        console.log({
+          name: formState.inputs.name.value,
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value,
+        })
+      auth.login(responseData.user.id);
+    } catch (err) {}
+    console.log(formState);
+  };
 
   return (
     <>
       <h1 style={{ textAlign: "center", paddingTop: "2rem" }}>註冊帳號</h1>
       <form className={classes.SignUp} onSubmit={signupSubmitHandler}>
-        
         <Input
           element="input"
           id="email"
