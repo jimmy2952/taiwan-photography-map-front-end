@@ -56,7 +56,7 @@ const NavLinks = (props) => {
           </NavLink>
         </li>
       )}
-      {auth.isLoggedIn && <li style={{cursor: "pointer"}} onClick={showConfirmModalHandler}>登出</li>}
+      {auth.isLoggedIn && <li style={{cursor: "pointer"}} onClick={showConfirmModalHandler}><a>登出</a></li>}
       {!auth.isLoggedIn && (
         <li>
           <NavLink to="/login" exact>
