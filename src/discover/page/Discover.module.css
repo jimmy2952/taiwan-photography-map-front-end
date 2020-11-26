@@ -1,0 +1,17 @@
+.Discover {
+  padding: 5rem 12rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.Discover div {
+  width: 23vw;
+  margin: 0 1rem;
+  padding-bottom: 2rem;
+}
+
+.Discover img {
+  width: 100%;
+}

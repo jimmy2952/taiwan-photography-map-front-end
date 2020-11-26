@@ -40,6 +40,11 @@ const NavLinks = (props) => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/discover" exact>
+          探索
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/map" exact>
           地圖
         </NavLink>

@@ -44,7 +44,6 @@ const CurrentWeather = (props) => {
           setWeatherData(responseData.current);
         } catch (err) {}
       };
-
       fetchCurrentWeather();
     }
     return;

@@ -11,6 +11,7 @@ import { useForm } from "../shared/hook/form-hook";
 import { useHttpClient } from "../shared/hook/http-hook"
 import { AuthContext } from "../shared/context/auth-context"
 import classes from "./Upload.module.css";
+import LoadingSpinner from "../shared/components/UIElements/LoadingSpinner";
 
 const Upload = (props) => {
   const auth = useContext(AuthContext)
@@ -73,6 +74,7 @@ const Upload = (props) => {
 
   return (
     <section className={classes.Upload}>
+      {isLoading && <div><LoadingSpinner asOverlay/></div>}
       <form onSubmit={uploadImageHandler}>
         <div className={classes.Container1}>
           <ImageUpload

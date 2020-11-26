@@ -1,0 +1,46 @@
+import React, { useEffect, useState } from "react";
+
+import { useHttpClient } from "../../shared/hook/http-hook";
+import image from "../../assets/001.jpg";
+import classes from "./Discover.module.css";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+
+const Discover = (props) => {
+  const [imagesData, setImagesData] = useState();
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const responseData = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/api/images`,
+          "GET"
+        );
+        setImagesData(responseData);
+      } catch (err) {}
+    };
+    fetchImages();
+  }, []);
+  console.log(imagesData);
+  return (
+    <section className={classes.Discover}>
+      {isLoading && (
+        <div>
+          <LoadingSpinner asOverlay />
+        </div>
+      )}
+      {imagesData &&
+        imagesData.images.map((image) => {
+          return (
+            <div>
+              <img
+                src={`${process.env.REACT_APP_BACKEND_URL}/${image.image}`}
+              />
+              <p style={{textAlign: "center"}}>{image.imageScapeName}</p>
+            </div>
+          );
+        })}
+    </section>
+  );
+};
+
+export default Discover;

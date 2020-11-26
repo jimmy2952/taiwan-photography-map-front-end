@@ -10,6 +10,7 @@ import SignUp from "./auth/SignUp";
 import Map from "./map/page/Map";
 import CityDetail from "./cityDetail/page/CityDetail";
 import ScapeDetail from "./cityDetail/page/ScapeDetail";
+import Discover from "./discover/page/Discover"
 import { useAuth } from "./shared/hook/auth-hook"
 import { AuthContext } from "./shared/context/auth-context";
 import "./App.css";
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/map/:city/:scape" component={ScapeDetail} />
         <Route path="/map/:city" component={CityDetail} />
         <Route path="/map" component={Map} />
+        <Route path="/discover" component={Discover} />
         <Route exact path="/" component={Carousel} />
         <Redirect to="/" />
       </Switch>
@@ -39,6 +41,7 @@ const App = () => {
         <Route path="/map/:city/:scape" component={ScapeDetail} />
         <Route path="/map/:city" component={CityDetail} />
         <Route path="/map" component={Map} />
+        <Route path="/discover" component={Discover} />
         <Route exact path="/" component={Carousel} />
         <Redirect to="/" />
       </Switch>
