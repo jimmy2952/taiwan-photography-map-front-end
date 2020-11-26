@@ -1,16 +1,17 @@
 import React, { useState, useContext } from "react";
 
-import Input from "../shared/components/UIElements/Input"
-import Button from "../shared/components/UIElements/Button"
-import { useForm } from "../shared/hook/form-hook"
-import { AuthContext } from "../shared/context/auth-context"
-import { useHttpClient } from "../shared/hook/http-hook"
-import { VALIDATOR_EMAIL, VALIDATOR_REQUIRE } from "../utils/validators"
-import classes from "./LogIn.module.css"
+import Input from "../shared/components/UIElements/Input";
+import Button from "../shared/components/UIElements/Button";
+import LoadingSpinner from "../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../shared/components/UIElements/ErrorModal";
+import { useForm } from "../shared/hook/form-hook";
+import { AuthContext } from "../shared/context/auth-context";
+import { useHttpClient } from "../shared/hook/http-hook";
+import { VALIDATOR_EMAIL, VALIDATOR_REQUIRE } from "../utils/validators";
+import classes from "./LogIn.module.css";
 
 const LogIn = (props) => {
   const auth = useContext(AuthContext);
-  const [isLogInMode, setIsLogInMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [formState, inputHandler, setFormDate] = useForm(
@@ -29,7 +30,6 @@ const LogIn = (props) => {
 
   const loginSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(process.env.REACT_APP_BACKEND_URL)
     try {
       const responseData = await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/api/users/login`,
@@ -40,15 +40,19 @@ const LogIn = (props) => {
         }),
         { "Content-Type": "application/json" }
       );
-      auth.login(responseData.user.id);
+      auth.login(responseData.userId, responseData.token);
     } catch (err) {}
-    console.log(formState);
   };
   return (
     <>
+      {isLoading && (
+        <div>
+          <LoadingSpinner asOverlay />
+        </div>
+      )}
+      <ErrorModal error={error} onClear={clearError} />
       <h1 style={{ textAlign: "center", paddingTop: "2rem" }}>登入</h1>
       <form className={classes.LogIn} onSubmit={loginSubmitHandler}>
-        
         <Input
           element="input"
           id="email"

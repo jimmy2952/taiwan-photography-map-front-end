@@ -62,8 +62,9 @@ const Upload = (props) => {
       formData.append("creator", auth.userId)
       await sendRequest(
         `${process.env.REACT_APP_BACKEND_URL}/api/images`,
-        "POST",formData,
-
+        "POST", formData, {
+          Authorization: "Bearer " + auth.token
+        }
       );
      history.push("/")
     } catch (err) {}
