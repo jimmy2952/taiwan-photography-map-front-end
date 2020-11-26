@@ -1,22 +1,23 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
-import WeatherPage from "./weather/pages/WeatherPage";
-import Carousel from "./carousel/Carousel";
-import Upload from "./upload/Upload";
-import LogIn from "./auth/LogIn";
-import SignUp from "./auth/SignUp";
-import Map from "./map/page/Map";
-import CityDetail from "./cityDetail/page/CityDetail";
-import ScapeDetail from "./cityDetail/page/ScapeDetail";
-import Discover from "./discover/page/Discover"
-import { useAuth } from "./shared/hook/auth-hook"
+import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner"
+import { useAuth } from "./shared/hook/auth-hook";
 import { AuthContext } from "./shared/context/auth-context";
 import "./App.css";
 
+const WeatherPage = React.lazy(() => import("./weather/pages/WeatherPage"));
+const Carousel = React.lazy(() => import("./carousel/Carousel"));
+const Upload = React.lazy(() => import("./upload/Upload"));
+const LogIn = React.lazy(() => import("./auth/LogIn"));
+const SignUp = React.lazy(() => import("./auth/SignUp"));
+const Map = React.lazy(() => import("./map/page/Map"));
+const CityDetail = React.lazy(() => import("./cityDetail/page/CityDetail"));
+const ScapeDetail = React.lazy(() => import("./cityDetail/page/ScapeDetail"));
+const Discover = React.lazy(() => import("./discover/page/Discover"));
 const App = () => {
-  const { token, login, logout, userId } = useAuth()
+  const { token, login, logout, userId } = useAuth();
 
   let routes;
   if (token) {
@@ -60,7 +61,17 @@ const App = () => {
     >
       <BrowserRouter>
         <MainNavigation />
-        <main className="headerHeight">{routes}</main>
+        <main className="headerHeight">
+          <Suspense
+            fallback={
+              <div className="center">
+                <LoadingSpinner />
+              </div>
+            }
+          >
+            {routes}
+          </Suspense>
+        </main>
       </BrowserRouter>
     </AuthContext.Provider>
   );
