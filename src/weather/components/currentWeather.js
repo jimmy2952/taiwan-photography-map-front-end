@@ -29,23 +29,21 @@ const CurrentWeather = (props) => {
   });
 
   useEffect(() => {
-    if (props.districtLonLat.lon !== "-") {
-      const fetchCurrentWeather = async () => {
-        try {
-          const responseData = await sendRequest(
-            `https://pfa.foreca.com/api/v1/current/${props.districtLonLat.lon},${props.districtLonLat.lat}`,
-            "GET",
-            null,
-            {
-              Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-            }
-          );
-          console.log(responseData);
-          setWeatherData(responseData.current);
-        } catch (err) {}
-      };
-      fetchCurrentWeather();
-    }
+    const fetchCurrentWeather = async () => {
+      try {
+        const responseData = await sendRequest(
+          `https://pfa.foreca.com/api/v1/current/${props.districtLonLat.lon},${props.districtLonLat.lat}`,
+          "GET",
+          null,
+          {
+            Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
+          }
+        );
+        console.log(responseData);
+        setWeatherData(responseData.current);
+      } catch (err) {}
+    };
+    fetchCurrentWeather();
     return;
   }, [sendRequest, props.districtLonLat]);
 

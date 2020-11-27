@@ -22,8 +22,8 @@ const WeatherPage = (props) => {
   // })
 
   const [cityDistrictValue, setCityDistrictValue] = useState({
-    city: "縣市",
-    district: "-",
+    city: "台北市",
+    district: "信義區",
   });
 
   const [showState, setShowState] = useState({
@@ -80,7 +80,6 @@ const WeatherPage = (props) => {
         event.target.value === district.districtName
       );
     });
-    console.log(districtData);
 
     setLonLat({
       lon: Number(districtData[0].lon).toFixed(2),
@@ -95,6 +94,13 @@ const WeatherPage = (props) => {
         lat: position.coords.latitude.toFixed(2),
       });
     });
+    setCityDistrictValue(prevStat => {
+      return {
+        ...prevStat,
+        city: "現在",
+        district: "位置"
+      }
+    })
     console.log(lonLat);
   };
 
