@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/carousel/Carousel.module.css"],"names":[],"mappings":"AACA,8BACI,yBACJ,CAEA,yBACI,8BACI,UAAW,CACX,kBACJ,CACJ","file":"13.01ad5883.chunk.css","sourcesContent":["\n.Carousel img {\n    height: calc(100vh - 4rem);\n}\n\n@media (max-width: 499px) {\n    .Carousel img {\n        width: 100%;\n        object-fit: contain;\n    }\n} "]}
