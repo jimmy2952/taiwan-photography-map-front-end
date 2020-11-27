@@ -64,8 +64,8 @@ const App = () => {
         <main className="headerHeight">
           <Suspense
             fallback={
-              <div className="center">
-                <LoadingSpinner />
+              <div className="center" >
+                <LoadingSpinner asOverlay />
               </div>
             }
           >

@@ -7,13 +7,13 @@ const ScapeDetailCard = (props) => {
   return (
     <div className={classes.ScapeDetailCard}>
       <div className={classes.ImageContainer}>
-      <img src={image} />
+      <img src={`${process.env.REACT_APP_BACKEND_URL}/${props.image}`} />
       </div>
       <div className={classes.ImageInformation}>
         <div>
           
         </div>
-        <span>最美銀河</span>
+        <span>{props.imageTitle}</span>
       </div>
     </div>
   );

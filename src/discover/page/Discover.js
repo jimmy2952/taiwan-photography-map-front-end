@@ -21,24 +21,26 @@ const Discover = (props) => {
   }, []);
   console.log(imagesData);
   return (
-    <section className={classes.Discover}>
+    <>
       {isLoading && (
         <div>
           <LoadingSpinner asOverlay />
         </div>
       )}
-      {imagesData &&
-        imagesData.images.map((image) => {
-          return (
-            <div>
-              <img
-                src={`${process.env.REACT_APP_BACKEND_URL}/${image.image}`}
-              />
-              <p style={{textAlign: "center"}}>{image.imageScapeName}</p>
-            </div>
-          );
-        })}
-    </section>
+      <section className={classes.Discover}>
+        {imagesData &&
+          imagesData.images.map((image) => {
+            return (
+              <div key={Math.random()}>
+                <img
+                  src={`${process.env.REACT_APP_BACKEND_URL}/${image.image}`}
+                />
+                <p style={{ textAlign: "center" }}>{image.imageScapeName}</p>
+              </div>
+            );
+          })}
+      </section>
+    </>
   );
 };
 
