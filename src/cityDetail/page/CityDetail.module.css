@@ -8,6 +8,11 @@
   text-align: center;
 }
 
+.CityDetail a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
 .CityCardContainer {
   display: flex;
   flex-wrap: wrap;

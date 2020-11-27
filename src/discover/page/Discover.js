@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import { useHttpClient } from "../../shared/hook/http-hook";
-import image from "../../assets/001.jpg";
 import classes from "./Discover.module.css";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 

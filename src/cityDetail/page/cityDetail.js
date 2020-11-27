@@ -1,24 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import CityScapeCard from "../components/CityScapeCard";
+import { useHttpClient } from "../../shared/hook/http-hook"
 import classes from "./CityDetail.module.css"
 
 const CityDetail = (props) => {
-  console.log(props.location);
+  console.log("render")
+  const [imagesData, setImagesData] = useState();
+  const cityName = props.location.state.cityName
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const responseData = await sendRequest(
+          `${process.env.REACT_APP_BACKEND_URL}/api/images/${cityName}`,
+          "GET"
+        );
+        setImagesData(responseData);
+      } catch (err) {}
+    };
+    fetchImages();
+  }, []);
+  console.log(imagesData);
   return (
     <section className={classes.CityDetail}>
-      <h1>{props.location.state.cityName}</h1>
+      <h1>{cityName}</h1>
       <div className={classes.CityCardContainer}>
-      <Link to={{pathname: `${props.location.pathname}/jiufeng`}}><CityScapeCard /></Link> 
-      <CityScapeCard />
-      <CityScapeCard />
-      <CityScapeCard />
-      <CityScapeCard />
-      <CityScapeCard />
-      <CityScapeCard />
-      <CityScapeCard />
-      <CityScapeCard />
+        {imagesData && imagesData.scapes.map(image => {
+          return (
+            <Link to={{pathname: `${cityName}/${image.imageScapeName}`}} key={Math.random()}>
+              <CityScapeCard scapeName={image.imageScapeName} image={image.image}/>
+            </Link>
+          )
+        })}
       </div>
     </section>
   );

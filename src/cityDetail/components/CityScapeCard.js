@@ -7,10 +7,10 @@ const CityScapeCard = (props) => {
   return (
     <div className={classes.CityScapeCard}>
       <div>
-      <img src={image} />
+      <img src={`${process.env.REACT_APP_BACKEND_URL}/${props.image}`} />
       </div>
       <div className={classes.ImageInformation}>
-        <span>九份：共3張照片</span>
+        <span>{props.scapeName}</span>
       </div>
     </div>
   );
