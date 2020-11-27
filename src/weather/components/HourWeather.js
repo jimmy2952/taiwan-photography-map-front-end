@@ -76,7 +76,7 @@ const HourWeather = (props) => {
           <LoadingSpinner />
         </div>
       ) : (
-        hourData.forecast.map((hourDataItem) => {
+        hourData && hourData.forecast.map((hourDataItem) => {
           const data = new Date(hourDataItem.time);
           const currentDate = data.getMonth() + 1 + "/" + data.getDate();
           const hourMinute = new Intl.DateTimeFormat("zh-TW", {

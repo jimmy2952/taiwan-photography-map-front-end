@@ -4,6 +4,7 @@ import ScapeDetailCard from "../components/ScapeDetailCard";
 import { useHttpClient } from "../../shared/hook/http-hook";
 import classes from "./ScapeDetail.module.css";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal"
 
 const ScapeDetail = (props) => {
   const cityName = props.location.state.cityName
@@ -26,6 +27,7 @@ const ScapeDetail = (props) => {
   return (
     <section className={classes.ScapeDetail}>
       {isLoading && <div><LoadingSpinner asOverlay /></div>}
+      <ErrorModal error={error} onClear={clearError} />
       <h1>{scapeName}</h1>
       <div className={classes.ScapeCardContainer}>
         {imagesData && imagesData.images.map(image => {

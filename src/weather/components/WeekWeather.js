@@ -67,7 +67,7 @@ const WeakWeather = (props) => {
           <LoadingSpinner />
         </div>
       ) : (
-        weekData.forecast.map((weekDataItem) => {
+        weekData && weekData.forecast.map((weekDataItem) => {
           const data = new Date(weekDataItem.date);
           const currentDate = data.getMonth() + 1 + "/" + data.getDate();
 

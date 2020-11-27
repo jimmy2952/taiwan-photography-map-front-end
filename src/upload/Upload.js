@@ -12,6 +12,7 @@ import { useHttpClient } from "../shared/hook/http-hook"
 import { AuthContext } from "../shared/context/auth-context"
 import classes from "./Upload.module.css";
 import LoadingSpinner from "../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../shared/components/UIElements/ErrorModal"
 
 const Upload = (props) => {
   const auth = useContext(AuthContext)
@@ -67,7 +68,7 @@ const Upload = (props) => {
           Authorization: "Bearer " + auth.token
         }
       );
-     history.push("/")
+     history.push("/discover")
     } catch (err) {}
     console.log(formState.inputs)
   };
@@ -75,6 +76,7 @@ const Upload = (props) => {
   return (
     <section className={classes.Upload}>
       {isLoading && <div><LoadingSpinner asOverlay/></div>}
+      <ErrorModal error={error} onClear={clearError} />
       <form onSubmit={uploadImageHandler}>
         <div className={classes.Container1}>
           <ImageUpload

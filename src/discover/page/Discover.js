@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useHttpClient } from "../../shared/hook/http-hook";
 import classes from "./Discover.module.css";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 
 const Discover = (props) => {
   const [imagesData, setImagesData] = useState();
@@ -27,6 +28,7 @@ const Discover = (props) => {
           <LoadingSpinner asOverlay />
         </div>
       )}
+      <ErrorModal error={error} onClear={clearError} />
       <section className={classes.Discover}>
         {imagesData &&
           imagesData.images.map((image) => {

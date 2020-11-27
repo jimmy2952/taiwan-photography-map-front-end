@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import CityScapeCard from "../components/CityScapeCard";
-import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner"
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal"
 import { useHttpClient } from "../../shared/hook/http-hook";
 import classes from "./CityDetail.module.css";
 
@@ -26,7 +27,12 @@ const CityDetail = (props) => {
   console.log(imagesData);
   return (
     <section className={classes.CityDetail}>
-      {isLoading && <div><LoadingSpinner asOverlay /></div>}
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && (
+        <div>
+          <LoadingSpinner asOverlay />
+        </div>
+      )}
       <h1>{cityName}</h1>
       <div className={classes.CityCardContainer}>
         {imagesData &&
@@ -35,7 +41,10 @@ const CityDetail = (props) => {
               <Link
                 to={{
                   pathname: `${cityName}/${image.imageScapeName}`,
-                  state: { scapeName: image.imageScapeName, cityName: cityName },
+                  state: {
+                    scapeName: image.imageScapeName,
+                    cityName: cityName,
+                  },
                 }}
                 key={Math.random()}
               >
