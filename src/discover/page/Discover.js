@@ -34,9 +34,9 @@ const Discover = (props) => {
           imagesData.images.map((image) => {
             return (
               <div key={Math.random()}>
-                <img
-                  src={`${process.env.REACT_APP_BACKEND_URL}/${image.image}`}
-                />
+                {<img
+                  src={`${process.env.REACT_APP_BACKEND_URL}/api/images/get-image/${image.id}`}
+                />}
                 <p style={{ textAlign: "center" }}>{image.imageScapeName}</p>
               </div>
             );

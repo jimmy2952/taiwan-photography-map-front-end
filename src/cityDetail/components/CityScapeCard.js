@@ -7,7 +7,7 @@ const CityScapeCard = (props) => {
   return (
     <div className={classes.CityScapeCard}>
       <div>
-      <img src={`${process.env.REACT_APP_BACKEND_URL}/${props.image}`} />
+      <img src={`${process.env.REACT_APP_BACKEND_URL}/api/images/get-image/${props.imageId}`} />
       </div>
       <div className={classes.ImageInformation}>
         <span>{props.scapeName}</span>

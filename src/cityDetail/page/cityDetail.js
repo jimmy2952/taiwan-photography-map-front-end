@@ -51,6 +51,7 @@ const CityDetail = (props) => {
                 <CityScapeCard
                   scapeName={image.imageScapeName}
                   image={image.image}
+                  imageId={image.id}
                 />
               </Link>
             );
