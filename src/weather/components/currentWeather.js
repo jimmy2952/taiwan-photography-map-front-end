@@ -68,9 +68,7 @@ const CurrentWeather = (props) => {
           <div
             className={classes.Temperature}
           >{`${weatherData.temperature}°C`}</div>
-          <div
-            style={{ fontSize: "1.6rem" }}
-          >{`體感溫度：${weatherData.feelsLikeTemp}°C`}</div>
+          <div><p>{`體感溫度：${weatherData.feelsLikeTemp}°C`}</p></div>
         </div>
         <div className={classes.WeatherImage}>
           <div style={{ display: "flex", alignItems: "flex-start" }}>

@@ -1,6 +1,7 @@
 .WeatherPage h1 {
   text-align: center;
-  padding-top: 1rem;
+  padding: 1.2rem 0;
+  font-size: 1.4rem;
 }
 
 .WeatherPage nav {
@@ -9,14 +10,15 @@
 
 .WeatherPage ul {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   padding: 0;
 }
 
 .WeatherPage li {
   list-style: none;
-  padding: 1rem 3rem;
-  font-size: 1.6rem;
+  padding: 0.5rem 3rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
@@ -26,7 +28,7 @@
 }
 
 .WeatherPage section {
-  width: 60%;
+  width: 90vw;
   border: 1px solid #1a1a1a;
   margin: auto;
   margin-bottom: 5rem;
@@ -34,4 +36,23 @@
   -webkit-box-shadow: 4px 4px 14px 0px rgba(125,125,125,1);
   -moz-box-shadow: 4px 4px 14px 0px rgba(125,125,125,1);
   box-shadow: 4px 4px 14px 0px rgba(125,125,125,1);
+}
+
+@media (min-width: 768px) {
+  .WeatherPage section {
+    width: 60%;
+  }
+  .WeatherPage ul {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .WeatherPage li {
+    padding: 1rem 3rem;
+    font-size: 1.6rem;
+  }
+  .WeatherPage h1 {
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 0;
+  }
 }

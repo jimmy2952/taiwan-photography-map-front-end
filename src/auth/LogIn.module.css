@@ -1,5 +1,5 @@
 .LogIn  {
-  width: 30%;
+  width: 90vw;
   margin: 0 auto;
   margin-top: 2rem;
   border: 1px solid #1a1a1a;
@@ -13,4 +13,8 @@
   margin-top: 1rem;
 }
 
-
+@media (min-width: 768px) {
+  .LogIn {
+    width: 30%;
+  }
+}

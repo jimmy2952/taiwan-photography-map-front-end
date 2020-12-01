@@ -1,6 +1,6 @@
 .ScapeDetail {
   margin: 0 auto;
-  width: 65vw;
+  width: 90vw;
 }
 
 .ScapeDetail h1 {
@@ -12,4 +12,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+@media (min-width: 768px) {
+  .ScapeDetail {
+    width: 65vw;
+  }
 }

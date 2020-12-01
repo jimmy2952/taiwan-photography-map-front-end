@@ -6,7 +6,7 @@ import "./Map.css";
 const Map = (props) => {
   return (
     <>
-      <div style={{ position: "relative" }}>
+      <div className="description">
         <div className="descriptionContainer">
           <h4>目前有照片的城市：</h4>
           <p>

@@ -1,5 +1,5 @@
 .Discover {
-  width: 65vw;
+  width: 90vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -9,11 +9,20 @@
 }
 
 .Discover div {
-  width: 20vw;
+  width: 100%;
   margin: 0 0.5rem;
   padding-bottom: 1rem;
 }
 
 .Discover img {
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .Discover {
+    width: 65vw;
+  }
+  .Discover div {
+    width: 20vw;
+  }
 }

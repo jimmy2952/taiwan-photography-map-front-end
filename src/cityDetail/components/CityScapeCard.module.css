@@ -1,6 +1,6 @@
 .CityScapeCard div {
-  width: 20vw;
-  margin-bottom: 1rem;
+  width: 100%;
+  margin: 0.5rem 0;
 }
 
 .CityScapeCard img {
@@ -9,4 +9,11 @@
 
 .ImageInformation {
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .CityScapeCard div {
+    width: 20vw;
+    margin-bottom: 1rem;
+  }
 }

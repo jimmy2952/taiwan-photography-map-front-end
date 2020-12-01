@@ -1,6 +1,6 @@
 .CityDetail {
   margin: 0 auto;
-  width: 65vw;
+  width: 90vw;
 }
 
 .CityDetail h1 {
@@ -17,4 +17,10 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+@media (min-width: 768px) {
+  .CityDetail {
+    width: 65vw;
+  }
 }

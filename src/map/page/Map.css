@@ -1,17 +1,17 @@
-.north{
+.north {
   fill: #bbe1fa;
 }
-.middle{
-  fill: #C5E1B7;
+.middle {
+  fill: #c5e1b7;
 }
-.south{
-  fill: #F9CFAB;
+.south {
+  fill: #f9cfab;
 }
-.east{
-  fill: #D7D1E8;
+.east {
+  fill: #d7d1e8;
 }
 
-.cityArea:hover{
+.cityArea:hover {
   opacity: 0.9;
   cursor: pointer;
 }
@@ -21,20 +21,56 @@
 }
 
 .mymap {
-  height: '100vh';
+  height: "100vh";
   width: 100%;
-} 
+}
+
+.description {
+  position: relative;
+}
 
 .descriptionContainer {
-  position: absolute;
-  left: 10rem;
-  top: 2rem;
-  border: 1px solid #9b9b9b;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   padding: 0 1rem;
   border-radius: 5px;
+}
+
+.descriptionContainer h4 {
+  font-size: 1.4rem;
+}
+
+.descriptionContainer p {
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
 }
 
 .descriptionContainer a {
   text-decoration: none;
   color: #1a1a1a;
+}
+
+svg {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  svg {
+    display: block;
+  }
+  .descriptionContainer {
+    display: block;
+    position: absolute;
+    left: 10rem;
+    top: 2rem;
+    border: 1px solid #9b9b9b;
+  }
+  .descriptionContainer h4 {
+    font-size: 1rem;
+  }
+  .descriptionContainer p {
+    margin: 1rem 0;
+    font-size: 1rem;
+  }
 }
