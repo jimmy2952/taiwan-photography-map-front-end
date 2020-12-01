@@ -71,7 +71,7 @@ const HourWeather = (props) => {
           <span>紫外線指數</span>
         </div>
       </div>
-      {isLoading && hourData ? (
+      {hourData && isLoading ? (
         <div className="center">
           <LoadingSpinner />
         </div>

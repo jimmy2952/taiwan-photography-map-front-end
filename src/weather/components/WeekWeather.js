@@ -62,7 +62,7 @@ const WeakWeather = (props) => {
           <span>日落</span>
         </div>
       </div>
-      {isLoading && weekData ? (
+      {weekData && isLoading ? (
         <div className="center">
           <LoadingSpinner />
         </div>
