@@ -1,6 +1,5 @@
 import React from "react";
 
-import image from "../../assets/001.jpg";
 import classes from "./CityScapeCard.module.css"
 
 const CityScapeCard = (props) => {

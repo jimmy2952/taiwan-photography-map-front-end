@@ -51,6 +51,10 @@
   color: #1a1a1a;
 }
 
+.descriptionContainer a:hover {
+  opacity: 0.5;
+}
+
 svg {
   display: none;
 }

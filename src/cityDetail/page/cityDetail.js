@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import CityScapeCard from "../components/CityScapeCard";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
@@ -10,13 +10,13 @@ import classes from "./CityDetail.module.css";
 const CityDetail = (props) => {
   console.log("render");
   const [imagesData, setImagesData] = useState();
-  const cityName = props.location.state.cityName;
+  const { city } = useParams()
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   useEffect(() => {
     const fetchImages = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/api/images/${cityName}`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/images/${city}`,
           "GET"
         );
         setImagesData(responseData);
@@ -33,18 +33,14 @@ const CityDetail = (props) => {
           <LoadingSpinner asOverlay />
         </div>
       )}
-      <h1>{cityName}</h1>
+      <h1>{city}</h1>
       <div className={classes.CityCardContainer}>
         {imagesData &&
           imagesData.scapes.map((image) => {
             return (
               <Link
                 to={{
-                  pathname: `${cityName}/${image.imageScapeName}`,
-                  state: {
-                    scapeName: image.imageScapeName,
-                    cityName: cityName,
-                  },
+                  pathname: `${city}/${image.imageScapeName}`,
                 }}
                 key={Math.random()}
               >

@@ -18,6 +18,15 @@
   width: 100%;
 }
 
+.Discover a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.Discover a:hover {
+  opacity: 0.8;
+}
+
 @media (min-width: 768px) {
   .Discover {
     width: 65vw;

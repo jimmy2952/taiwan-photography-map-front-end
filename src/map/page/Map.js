@@ -10,103 +10,93 @@ const Map = (props) => {
         <div className="descriptionContainer">
           <h4>目前有照片的城市：</h4>
           <p>
-          <Link
-            to={{
-              pathname: "/map/基隆市",
-              state: { cityName: "基隆市" },
-            }}
-          >
-            <span>基隆市</span>
+            <Link
+              to={{
+                pathname: "/map/基隆市",
+              }}
+            >
+              <span>基隆市</span>
             </Link>
           </p>
           <p>
-          <Link
-            to={{
-              pathname: "/map/新北市",
-              state: { cityName: "新北市" },
-            }}
-          >
-            <span>新北市</span>
+            <Link
+              to={{
+                pathname: "/map/新北市",
+              }}
+            >
+              <span>新北市</span>
             </Link>
           </p>
           <p>
-          <Link
-            to={{
-              pathname: "/map/台北市",
-              state: { cityName: "台北市" },
-            }}
-          >
-            <span>台北市</span>
+            <Link
+              to={{
+                pathname: "/map/台北市",
+              }}
+            >
+              <span>台北市</span>
             </Link>
           </p>
           <p>
             <Link
               to={{
                 pathname: "/map/新竹市",
-                state: { cityName: "新竹市" },
               }}
             >
               <span>新竹市</span>
             </Link>
           </p>
           <p>
-          <Link
-            to={{
-              pathname: "/map/台中市",
-              state: { cityName: "台中市" },
-            }}
-          >
-            <span>台中市</span>
+            <Link
+              to={{
+                pathname: "/map/台中市",
+              }}
+            >
+              <span>台中市</span>
             </Link>
           </p>
           <p>
-          <Link
-            to={{
-              pathname: "/map/嘉義市",
-              state: { cityName: "嘉義市" },
-            }}
-          >
-            <span>嘉義市</span>
+            <Link
+              to={{
+                pathname: "/map/嘉義市",
+              }}
+            >
+              <span>嘉義市</span>
             </Link>
           </p>
           <p>
-          <Link
-            to={{
-              pathname: "/map/台南市",
-              state: { cityName: "台南市" },
-            }}
-          >
-            <span>台南市</span>
+            <Link
+              to={{
+                pathname: "/map/台南市",
+              }}
+            >
+              <span>台南市</span>
             </Link>
           </p>
           <p>
-          <Link
-            to={{
-              pathname: "/map/台東縣",
-              state: { cityName: "台東縣" },
-            }}
-          >
-            <span>台東縣</span>
+            <Link
+              to={{
+                pathname: "/map/台東縣",
+              }}
+            >
+              <span>台東縣</span>
             </Link>
           </p>
           <p>
-          <Link
-            to={{
-              pathname: "/map/花蓮縣",
-              state: { cityName: "花蓮縣" },
-            }}
-          >
-            <span>花蓮縣</span>
+            <Link
+              to={{
+                pathname: "/map/花蓮縣",
+              }}
+            >
+              <span>花蓮縣</span>
             </Link>
           </p>
           <p>
-          <Link
-            to={{
-              pathname: "/map/宜蘭縣",
-              state: { cityName: "宜蘭縣" },
-            }}
-          >
-            <span>宜蘭縣</span>
+            <Link
+              to={{
+                pathname: "/map/宜蘭縣",
+              }}
+            >
+              <span>宜蘭縣</span>
             </Link>
           </p>
         </div>
@@ -130,7 +120,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/連江縣",
-              state: { cityName: "連江縣" },
             }}
           >
             <path
@@ -143,7 +132,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/金門縣",
-              state: { cityName: "金門縣" },
             }}
           >
             <g class="cityArea" id="CITY_KM_square">
@@ -169,7 +157,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/澎湖縣",
-              state: { cityName: "澎湖縣" },
             }}
           >
             <path
@@ -182,7 +169,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/桃園市",
-              state: { cityName: "桃園市" },
             }}
           >
             <polygon
@@ -195,7 +181,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/新竹縣",
-              state: { cityName: "新竹縣" },
             }}
           >
             <polygon
@@ -208,7 +193,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/新竹市",
-              state: { cityName: "新竹市" },
             }}
           >
             <polygon
@@ -221,7 +205,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/苗栗縣",
-              state: { cityName: "苗栗縣" },
             }}
           >
             <polygon
@@ -234,7 +217,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/台中市",
-              state: { cityName: "台中市" },
             }}
           >
             <polygon
@@ -247,7 +229,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/南投縣",
-              state: { cityName: "南投縣" },
             }}
           >
             <polygon
@@ -260,7 +241,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/彰化縣",
-              state: { cityName: "彰化縣" },
             }}
           >
             <polygon
@@ -273,7 +253,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/雲林縣",
-              state: { cityName: "雲林縣" },
             }}
           >
             <polygon
@@ -286,7 +265,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/嘉義縣",
-              state: { cityName: "嘉義縣" },
             }}
           >
             <path
@@ -299,7 +277,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/嘉義市",
-              state: { cityName: "嘉義市" },
             }}
           >
             <polygon
@@ -312,7 +289,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/台南市",
-              state: { cityName: "台南市" },
             }}
           >
             <polygon
@@ -325,7 +301,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/高雄市",
-              state: { cityName: "高雄市" },
             }}
           >
             <path
@@ -338,7 +313,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/屏東縣",
-              state: { cityName: "屏東縣" },
             }}
           >
             <path
@@ -351,7 +325,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/台東縣",
-              state: { cityName: "台東縣" },
             }}
           >
             <path
@@ -364,7 +337,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/花蓮縣",
-              state: { cityName: "花蓮縣" },
             }}
           >
             <polygon
@@ -377,7 +349,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/宜蘭縣",
-              state: { cityName: "宜蘭縣" },
             }}
           >
             <path
@@ -390,7 +361,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/台北市",
-              state: { cityName: "台北市" },
             }}
           >
             <polygon
@@ -403,7 +373,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/新北市",
-              state: { cityName: "新北市" },
             }}
           >
             <path
@@ -416,7 +385,6 @@ const Map = (props) => {
           <Link
             to={{
               pathname: "/map/基隆市",
-              state: { cityName: "基隆市" },
             }}
           >
             <polygon

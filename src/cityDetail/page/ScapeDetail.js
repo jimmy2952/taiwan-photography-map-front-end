@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import ScapeDetailCard from "../components/ScapeDetailCard";
-import { useHttpClient } from "../../shared/hook/http-hook";
-import classes from "./ScapeDetail.module.css";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import { useHttpClient } from "../../shared/hook/http-hook";
+import classes from "./ScapeDetail.module.css";
 
 const ScapeDetail = (props) => {
-  const cityName = props.location.state.cityName;
-  const scapeName = props.location.state.scapeName;
+  const { city, scape } = useParams()
   const [imagesData, setImagesData] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   useEffect(() => {
     const fetchImages = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/api/images/${cityName}/${scapeName}`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/images/${city}/${scape}`,
           "GET"
         );
         setImagesData(responseData);
@@ -32,7 +32,7 @@ const ScapeDetail = (props) => {
         </div>
       )}
       <ErrorModal error={error} onClear={clearError} />
-      <h1>{scapeName}</h1>
+      <h1>{scape}</h1>
       <div className={classes.ScapeCardContainer}>
         {imagesData &&
           imagesData.images.map((image) => {
@@ -41,6 +41,7 @@ const ScapeDetail = (props) => {
                 image={image.image}
                 imageTitle={image.imageTitle}
                 imageId={image.id}
+                key={Math.random()}
               />
             );
           })}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { useHttpClient } from "../../shared/hook/http-hook";
 import classes from "./Discover.module.css";
@@ -34,10 +35,23 @@ const Discover = (props) => {
           imagesData.images.map((image) => {
             return (
               <div key={Math.random()}>
-                {<img
-                  src={`${process.env.REACT_APP_BACKEND_URL}/api/images/get-image/${image.id}`}
-                />}
-                <p style={{ textAlign: "center" }}>{image.imageScapeName}</p>
+                <Link
+                  to={`map/${image.imageCityLocation}/${image.imageScapeName}`}
+                >
+                  {
+                    <img
+                      src={`${process.env.REACT_APP_BACKEND_URL}/api/images/get-image/${image.id}`}
+                    />
+                  }
+                </Link>
+
+                <p style={{ textAlign: "center" }}>
+                  <Link
+                    to={`map/${image.imageCityLocation}/${image.imageScapeName}`}
+                  >
+                    <span>{image.imageScapeName}</span>
+                  </Link>
+                </p>
               </div>
             );
           })}
