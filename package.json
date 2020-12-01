@@ -2,7 +2,7 @@
   "name": "taiwan-photography-map-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://jimmy2952.github.io/taiwan-photography-map-front-end",
+  "homepage": "https://taiwan-photography-map-front-end.vercel.app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
