@@ -14,6 +14,16 @@
   padding-bottom: 1rem;
 }
 
+.ImagePlaceholderContainer {
+  width: 100%;
+  min-height: calc(20vw * 2 / 3);
+  background-image: url("../../assets/imagePlaceholder.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 80%;
+  padding-bottom: 0 !important;
+}
+
 .Discover img {
   width: 100%;
 }
@@ -24,7 +34,7 @@
 }
 
 .Discover a:hover {
-  opacity: 0.8;
+  filter: brightness(110%);
 }
 
 @media (min-width: 768px) {
