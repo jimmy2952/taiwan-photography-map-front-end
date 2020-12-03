@@ -4,25 +4,40 @@ import { Link } from "react-router-dom";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
 import { useHttpClient } from "../../shared/hook/http-hook";
+import { useScroll } from "../../shared/hook/scroll-hook";
 import classes from "./Discover.module.css";
-import imagePlaceholder from "../../assets/imagePlaceholder.png";
 
 const Discover = (props) => {
   const [imagesData, setImagesData] = useState();
+  const [skip, setSkip] = useState(0)
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const { offset, top, height } = useScroll();
+
   useEffect(() => {
+    console.log(Math.random())
     const fetchImages = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/api/images`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/images?skip=${skip}`,
           "GET"
         );
-        setImagesData(responseData);
+        const newData = responseData.images
+        if (imagesData) {
+          setImagesData([...imagesData, ...newData])
+        } else {
+          setImagesData(responseData.images)
+        }
       } catch (err) {}
     };
     fetchImages();
-  }, []);
-  console.log(imagesData);
+  }, [skip]);
+
+  useEffect(() => {
+    if (offset + top === height) {
+      setSkip(imagesData.length)
+    }
+  }, [top])
+
   return (
     <>
       {isLoading && (
@@ -33,7 +48,7 @@ const Discover = (props) => {
       <ErrorModal error={error} onClear={clearError} />
       <section className={classes.Discover}>
         {imagesData &&
-          imagesData.images.map((image) => {
+          imagesData.map((image) => {
             return (
               <div key={Math.random()}>
                 <div className={classes.ImagePlaceholderContainer}>
