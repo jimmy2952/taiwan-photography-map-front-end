@@ -40,6 +40,11 @@ const NavLinks = (props) => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/weather" exact>
+          天氣
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/discover" exact>
           探索
         </NavLink>
@@ -47,11 +52,6 @@ const NavLinks = (props) => {
       <li>
         <NavLink to="/map" exact>
           地圖
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/weather" exact>
-          天氣
         </NavLink>
       </li>
       {auth.isLoggedIn && (
